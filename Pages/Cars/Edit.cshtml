@@ -1,0 +1,53 @@
+﻿@page
+@model ConstellationGarage.Pages.Cars.EditModel
+
+@{
+    ViewData["Title"] = "Edit car";
+}
+
+<h1>Edit car</h1>
+<hr />
+
+<div class="row">
+    <div class="col-md-5">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Car.Id" />
+            <div class="form-group input-group mb-3">
+                <select asp-for="Car.CodeCategorie" class="form-control custom-select" asp-items="ViewBag.CodeCategorie"></select>
+                <label asp-for="Car.CodeCategorie" class="control-label input-group-text">Code categorie</label>
+                <span asp-validation-for="Car.CodeCategorie" class="text-danger"></span>
+            </div>
+            <div class="form-group input-group mb-3">
+                <select asp-for="Car.CodeBrand" class="form-control custom-select" asp-items="ViewBag.CodeBrand"></select>
+                <label asp-for="Car.CodeBrand" class="control-label input-group-text">Code brand</label>
+                <span asp-validation-for="Car.CodeBrand" class="text-danger"></span>
+            </div>
+            <div class="form-group input-group mb-3">
+                <select asp-for="Car.Essence" class="form-control custom-select">
+                    <option>Essence</option>
+                    <option>Ethanol</option>
+                    <option>Diesel</option>
+                    <option>Hybrid</option>
+                    <option>Electric</option>
+                </select>
+                <label asp-for="Car.Essence" class="control-label input-group-text">Fuel</label>
+                <span asp-validation-for="Car.Essence" class="text-danger"></span>
+            </div>
+            <div class="form-group input-group mb-3">
+                <input asp-for="Car.Color" class="form-control custom-select" />
+                <label asp-for="Car.Color" class="control-label input-group-text"></label>
+                <span asp-validation-for="Car.Color" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <a href="Index" class="btn btn-secondary"><i class="bi bi-arrow-left-square"></i></a>
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

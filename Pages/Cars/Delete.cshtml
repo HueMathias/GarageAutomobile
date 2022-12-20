@@ -1,0 +1,17 @@
+﻿@page
+@model ConstellationGarage.Pages.Cars.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Are you sure you want to delete car n°@Model.Car.Id ?</h1>
+<hr />
+<div>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Car.Id" />
+        <a asp-page="./Index" class="btn btn-secondary"><i class="bi bi-arrow-left-square"></i></a>
+        <input type="submit" value="Delete" class="btn btn-danger" /> 
+    </form>
+</div>

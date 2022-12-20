@@ -1,0 +1,67 @@
+.btn.btn-success a {
+    color:white;
+    text-decoration:none;
+}
+
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+/* Icons */
+
+.bi-pencil-square {
+    color: #68C0F1;
+}
+
+.bi-book {
+    color: #424242;
+}
+
+.bi-trash {
+    color: #DB190D;
+}
+
+/* Dashboard */
+th:not(.db-buttons) {
+    text-align: center;
+}
+
+td:not(.db-buttons) {
+    text-align: center;
+}
+
+.db-buttons {    
+    width:6%;
+}
+
+/* Select */
+select {
+    background-image: linear-gradient(45deg, transparent 50%, gray 50%), linear-gradient(135deg, gray 50%, transparent 50%), linear-gradient(to right, #ccc, #ccc);
+    background-position: calc(100% - 20px) calc(1em + 2px), calc(100% - 15px) calc(1em + 2px), calc(100% - 2.5em) 0.5em;
+    background-size: 5px 5px, 5px 5px, 1px 1.5em;
+    background-repeat: no-repeat;
+}
+
+select:focus {
+    background-image: linear-gradient(45deg, green 50%, transparent 50%), linear-gradient(135deg, transparent 50%, green 50%), linear-gradient(to right, #ccc, #ccc);
+    background-position: calc(100% - 15px) 1em, calc(100% - 20px) 1em, calc(100% - 2.5em) 0.5em;
+    background-size: 5px 5px, 5px 5px, 1px 1.5em;
+    background-repeat: no-repeat;
+    border-color: green;
+    outline: 0;
+}

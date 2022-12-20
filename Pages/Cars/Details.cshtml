@@ -1,0 +1,29 @@
+﻿@page
+@model ConstellationGarage.Pages.Cars.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Car details</h1>
+<hr/>
+<div>
+    <dl class="row">
+        <dt class="col-sm-2">Fuel</dt>
+        <dd class="col-sm-10">@Html.DisplayFor(model => model.Car.Essence)</dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Car.Color)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Car.Color)
+        </dd>
+        <dt class="col-sm-2">Brand code</dt>
+        <dd class="col-sm-10">@Html.DisplayFor(model => model.Car.CodeBrand)</dd>
+        <dt class="col-sm-2">Categorie code</dt>
+        <dd class="col-sm-10">@Html.DisplayFor(model => model.Car.CodeCategorie)</dd>
+    </dl>
+</div>
+<div>
+    <a href="Index" class="btn btn-secondary"><i class="bi bi-arrow-left-square"></i></a>
+    <a asp-page="./Edit" asp-route-id="@Model.Car?.Id" class="btn btn-primary"><i class="bi bi-pencil-square" style="color:white"></i></a>
+</div>

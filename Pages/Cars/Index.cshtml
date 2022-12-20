@@ -1,0 +1,53 @@
+﻿@page
+@model ConstellationGarage.Pages.Cars.IndexModel
+
+@{
+    ViewData["Title"] = "Car list";
+}
+
+<h1>Car list</h1>
+
+<table class="table table-striped table-borderless">
+    <thead>
+        <tr>
+            <th>Fuel<a asp-page="./Index" asp-route-pageIndex="@(Model.Cars.PageIndex)" asp-route-sortOrder="fuel" style="font-size:1em" class="badge badge-primary text-dark"><i class="bi bi-arrow-down"></i></a></th>
+            <th>Color<a asp-page="./Index" asp-route-pageIndex="@(Model.Cars.PageIndex)" asp-route-sortOrder="color" style="font-size:1em" class="badge badge-primary text-dark"><i class="bi bi-arrow-down"></i></a></th>
+            <th>Mark code</th>
+            <th>Categorie code</th>
+            <th class="db-buttons"></th>
+        </tr>
+    </thead>
+
+    <tbody>
+    @foreach (var item in Model.Cars) {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.Essence)</td>
+            <td>@Html.DisplayFor(modelItem => item.Color)</td>
+            <td>@Html.DisplayFor(modelItem => item.CodeBrand)</td>
+            <td>@Html.DisplayFor(modelItem => item.CodeCategorie)</td>
+            <td class="db-buttons">
+                <a asp-page="./Edit" asp-route-id="@item.Id"><i class="bi bi-pencil-square"></i></a>
+                <a asp-page="./Details" asp-route-id="@item.Id"><i class="bi bi-book"></i></a>
+                <a asp-page="./Delete" asp-route-id="@item.Id"><i class="bi bi-trash"></i></a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+
+@{
+    var prevDisabled = !Model.Cars.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.Cars.HasNextPage ? "disabled" : "";
+}
+
+<a href="/Index" class="btn btn-secondary"><i class="bi bi-arrow-left-square"></i></a>
+<a href="/Cars/Create" class="btn btn-success">Create +</a>
+
+<div style="text-align:center;float:right;">
+    <a asp-page="./Index" asp-route-pageIndex="@(Model.Cars.PageIndex - 1)" class="btn btn-primary btn-index @prevDisabled">
+        <i class="bi bi-arrow-left"></i>&nbsp;Previous
+    </a>
+    <a asp-page="./Index" asp-route-pageIndex="@(Model.Cars.PageIndex + 1)" class="btn btn-primary btn-index @nextDisabled">
+        Next&nbsp;<i class="bi bi-arrow-right"></i>
+    </a>
+</div>
