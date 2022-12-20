@@ -2,36 +2,40 @@
 @model ConstellationGarage.Pages.Brands.EditModel
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Edit brand";
 }
 
-<h1>Edit</h1>
-
-<h4>Brand</h4>
+<h1>Edit brand</h1>
 <hr />
+
 <div class="row">
-    <div class="col-md-4">        
+    <div class="col-md-5">        
         <form method="post" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Brand.Code" />
-            <div class="form-group">
-                <label asp-for="Brand.Name" class="control-label"></label>
-                <input asp-for="Brand.Name" class="form-control" />
+
+            <div class="form-group input-group mb-3">
+                <input asp-for="Brand.Name" class="form-control custom-select" />
+                <label asp-for="Brand.Name" class="control-label input-group-text"></label>
                 <span asp-validation-for="Brand.Name" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Icon" class="control-label"></label>
-                <input asp-for="Icon" type="file" class="form-control" />
+
+            <div class="form-group input-group mb-3">
+                <input asp-for="Icon"type="file" class="form-control custom-select w-75 h-25" />
+                <label asp-for="Icon"class="control-label input-group-text h-25"></label>
+                @{
+                    if (Model.Brand.Icon != null){
+                        <a style="color:black;font-size:25px;margin-left:1%" download="@{@Model.Brand.Code.ToString()}.png" href="data:image/jpeg;base64,@Convert.ToBase64String(Model.Brand.Icon ?? new byte[0])"><i class="bi bi-upload"></i></a> 
+                    }                    
+                }
             </div>
+
             <div class="form-group">
+                <a href="Index" class="btn btn-secondary"><i class="bi bi-arrow-left-square"></i></a>
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </form>
     </div>
-</div>
-
-<div>
-    <a asp-page="./Index">Back to List</a>
 </div>
 
 @section Scripts {

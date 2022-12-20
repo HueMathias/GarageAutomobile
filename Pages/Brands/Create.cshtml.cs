@@ -1,19 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using ConstellationGarage.Models;
 
 namespace ConstellationGarage.Pages.Brands
 {
     public class CreateModel : PageModel
     {
-        private readonly ConstellationGarage.Models.GarageautomobileContext _context;
+        private readonly GarageautomobileContext _context;
 
-        public CreateModel(ConstellationGarage.Models.GarageautomobileContext context)
+        public CreateModel(GarageautomobileContext context)
         {
             _context = context;
         }
@@ -25,14 +20,22 @@ namespace ConstellationGarage.Pages.Brands
 
         [BindProperty]
         public Brand Brand { get; set; }
-        
+        [BindProperty]
+        public IFormFile Icon { get; set; }
+
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
-          if (!ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 return Page();
+            }
+
+            using (var target = new MemoryStream())
+            {
+                Icon.CopyTo(target);
+                Brand.Icon = target.ToArray();
             }
 
             _context.Brands.Add(Brand);

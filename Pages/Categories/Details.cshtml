@@ -2,13 +2,12 @@
 @model ConstellationGarage.Pages.Categories.DetailsModel
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Category details";
 }
 
-<h1>Details</h1>
+<h1>Category details</h1>
 
 <div>
-    <h4>Category</h4>
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
@@ -20,6 +19,7 @@
     </dl>
 </div>
 <div>
-    <a asp-page="./Edit" asp-route-id="@Model.Category?.Code">Edit</a> |
-    <a asp-page="./Index">Back to List</a>
+    <a href="Index" class="btn btn-secondary"><i class="bi bi-arrow-left-square"></i></a>
+    <a asp-page="./Edit" asp-route-id="@Model.Category?.Code" class="btn btn-primary"><i class="bi bi-pencil-square" style="color:white"></i></a>
 </div>
+

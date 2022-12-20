@@ -2,32 +2,29 @@
 @model ConstellationGarage.Pages.Categories.EditModel
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Edit cateogry";
 }
 
-<h1>Edit</h1>
-
-<h4>Category</h4>
+<h1>Edit category</h1>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Category.Code" />
-            <div class="form-group">
-                <label asp-for="Category.Name" class="control-label"></label>
-                <input asp-for="Category.Name" class="form-control" />
+
+            <div class="form-group input-group mb-3">
+                <input asp-for="Category.Name" class="form-control custom-select" />
+                <label asp-for="Category.Name" class="control-label input-group-text"></label>
                 <span asp-validation-for="Category.Name" class="text-danger"></span>
             </div>
+
             <div class="form-group">
+                <a href="Index" class="btn btn-secondary"><i class="bi bi-arrow-left-square"></i></a>
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </form>
     </div>
-</div>
-
-<div>
-    <a asp-page="./Index">Back to List</a>
 </div>
 
 @section Scripts {

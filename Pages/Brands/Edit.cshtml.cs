@@ -18,7 +18,6 @@ namespace ConstellationGarage.Pages.Brands
         public Brand Brand { get; set; } = default!;
         [BindProperty]
         public IFormFile Icon { get; set; }
-        public string test = "test";
 
         public async Task<IActionResult> OnGetAsync(string id)
         {

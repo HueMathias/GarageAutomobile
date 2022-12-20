@@ -2,15 +2,12 @@
 @model ConstellationGarage.Pages.Brands.IndexModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Brand list";
 }
 
-<h1>Index</h1>
+<h1>Brand list</h1>
 
-<p>
-    <a asp-page="Create">Create New</a>
-</p>
-<table class="table">
+<table class="table table-striped table-borderless">
     <thead>
         <tr>
             <th>@Html.DisplayNameFor(model => model.Brand[0].Name)</th>
@@ -19,7 +16,8 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Brand) {
+
+    @foreach (var item in Model.Brands) {
         <tr>
             <td>@Html.DisplayFor(modelItem => item.Name)</td>
             <td>
@@ -28,12 +26,29 @@
                         <img width="100" height="100" src="data:image/jpeg;base64,@Convert.ToBase64String(item.Icon ?? new byte[0])" />
                     }
             </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.Code">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.Code">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.Code">Delete</a>
+            <td class="db-buttons">
+                <a asp-page="./Edit" asp-route-id="@item.Code"><i class="bi bi-pencil-square"></i></a>
+                <a asp-page="./Details" asp-route-id="@item.Code"><i class="bi bi-book"></i></a>
+                <a asp-page="./Delete" asp-route-id="@item.Code"><i class="bi bi-trash"></i></a>
             </td>
         </tr>
-}
+    }
     </tbody>
 </table>
+
+<a href="/Index" class="btn btn-secondary"><i class="bi bi-arrow-left-square"></i></a>
+<a href="/Brands/Create" class="btn btn-success">Create +</a>
+
+@{
+    var prevDisabled = !Model.Brands.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.Brands.HasNextPage ? "disabled" : "";
+}
+
+<div style="text-align:center;float:right;">
+    <a asp-page="./Index" asp-route-pageIndex="@(Model.Brands.PageIndex - 1)" class="btn btn-primary btn-index @prevDisabled">
+        <i class="bi bi-arrow-left"></i>&nbsp;Previous
+    </a>
+    <a asp-page="./Index" asp-route-pageIndex="@(Model.Brands.PageIndex + 1)" class="btn btn-primary btn-index @nextDisabled">
+        Next&nbsp;<i class="bi bi-arrow-right"></i>
+    </a>
+</div>
