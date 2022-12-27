@@ -2,7 +2,7 @@
 
 public static class Config
 {
-    private static IConfiguration configuration;
+    private static readonly IConfiguration configuration;
 
     static Config()
     {
@@ -14,7 +14,7 @@ public static class Config
 
     public static string Get(string name)
     {
-        string appSettings = configuration[name];
+        string appSettings = configuration[name] ?? "";
         return appSettings;
     }
 
