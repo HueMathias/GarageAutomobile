@@ -11,10 +11,17 @@
 
 <div class="text-center">
     <script type="text/javascript">
-            function Searchbar(e){
-               var searchText = document.getElementById("search").value
-               e.href = "/Cars?sortDefault=" + searchText
-            };        
+        function Searchbar(e){
+            var searchText = document.getElementById("search").value
+            e.href = "/Cars?sortDefault=" + searchText
+        };        
+
+        $(document).keypress(function(event)
+        {
+            if(event.keyCode==13) {
+                document.location = "/Cars?sortDefault=" + document.getElementById("search").value
+            }
+        });
     </script>
 
     <div class="d-inline-block w-50">
