@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Configuration;
 using Microsoft.EntityFrameworkCore;
 
 namespace ConstellationGarage.Models;
@@ -23,9 +22,7 @@ public partial class GarageautomobileContext : DbContext
     public virtual DbSet<Category> Categories { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    {
-        optionsBuilder.UseSqlServer(Config.GetSection("ConnectionStrings")["sqlserver"]);
-    }
+        => optionsBuilder.UseSqlServer(Config.GetSection("ConnectionStrings")["sqlserver"]);
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -52,6 +49,10 @@ public partial class GarageautomobileContext : DbContext
 
             entity.ToTable("cars");
 
+            entity.HasIndex(e => e.CodeBrand, "IX_cars_code_brand");
+
+            entity.HasIndex(e => e.CodeCategorie, "IX_cars_code_categorie");
+
             entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.CodeBrand)
                 .HasMaxLength(10)
@@ -69,6 +70,7 @@ public partial class GarageautomobileContext : DbContext
                 .HasMaxLength(25)
                 .IsUnicode(false)
                 .HasColumnName("essence");
+            entity.Property(e => e.New).HasColumnName("new");
 
             entity.HasOne(d => d.CodeBrandNavigation).WithMany(p => p.Cars)
                 .HasForeignKey(d => d.CodeBrand)

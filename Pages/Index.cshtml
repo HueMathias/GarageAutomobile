@@ -5,6 +5,70 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Constellation Garage and its network welcome you !</h1>    
 </div>
+<br />
+
+<div class="text-center">
+    <script type="text/javascript">
+            function Searchbar(e){
+               var searchText = document.getElementById("search").value
+               e.href = "/Cars?sortDefault=" + searchText
+            };        
+    </script>
+
+    <div class="d-inline-block w-50">
+        <div class="form-group input-group mb-3">
+            <input id="search" class="form-control custom-select" placeholder="To research..." />
+            <a href="#" onclick="Searchbar(this)" id="searchGo" class="control-label input-group-text"><i class="bi bi-search"></i></a>
+        </div>
+    </div>
+
+    <div>
+        <ul class="inline-list-3 fs-5">
+            <li><i class="bi bi-tools"></i>Configure your vehicles</li>
+            <li><i class="bi bi-search"></i>Smart Search</li>
+            <li><i class="bi bi-cart3"></i>Shop online</li>
+        </ul>
+    </div>
+
+    <div class="cards">
+        <div class="card mb-3">
+          <img src="https://www.largus.fr/images/images/renault-clio-top-20-classement-voiture-occasion_2.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Used vehicles</h5>
+            <p class="card-text">Choose from @ViewData["nbUsed"] now</p>
+            <a asp-page="./Cars/Index" asp-route-sortDefault="used" class="btn btn-primary">See opportunities</a>
+          </div>
+        </div>
+
+        <div class="card mb-3">
+          <img src="https://www.largus.fr/images/images/1_38.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">New vehicles</h5>
+            <p class="card-text">Choose from @ViewData["nbNew"] now</p>
+            <a asp-page="./Cars/Index" asp-route-sortDefault="new" class="btn btn-primary">See the new ones</a>
+          </div>
+        </div>
+
+        <div class="card mb-3">
+          <img src="https://www.planeteautomobile.com/wp-content/uploads/2021/05/Comment-devenir-mecanicien-automobile-4.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Maintenance and repair</h5>
+            <p class="card-text">Choose one of our 250 dealerships to make an appointment</p>
+            <a href="#" class="btn btn-primary">Make an appointment</a>
+          </div>
+        </div>
+    </div>
+
+    <ul class="inline-list">
+        <li title="Facebook"><i class="bi bi-facebook"></i></li>
+        <li title="Twitter"><i class="bi bi-twitter"></i></li>
+        <li title="Instagram"><i class="bi bi-instagram"></i></li>
+        <li title="Youtube"><i class="bi bi-youtube"></i></li>
+    </ul>
+</div>
+
+
+
+

@@ -14,6 +14,7 @@
             <th>Color<a asp-page="./Index" asp-route-pageIndex="@(Model.Cars.PageIndex)" asp-route-sortOrder="color" style="font-size:1em" class="badge badge-primary text-dark"><i class="bi bi-arrow-down"></i></a></th>
             <th>Mark code</th>
             <th>Categorie code</th>
+            <th>State</th>
             <th class="db-buttons"></th>
         </tr>
     </thead>
@@ -25,6 +26,11 @@
             <td>@Html.DisplayFor(modelItem => item.Color)</td>
             <td>@Html.DisplayFor(modelItem => item.CodeBrand)</td>
             <td>@Html.DisplayFor(modelItem => item.CodeCategorie)</td>
+                <td>@{
+                        bool newcar = item.New.HasValue ? item.New.Value : false;
+                        if (newcar) { <span class="badge bg-primary">New</span> }                            
+                        else { <span class="badge bg-warning">Used</span> }                            
+                    } </td>
             <td class="db-buttons">
                 <a asp-page="./Edit" asp-route-id="@item.Id"><i class="bi bi-pencil-square"></i></a>
                 <a asp-page="./Details" asp-route-id="@item.Id"><i class="bi bi-book"></i></a>

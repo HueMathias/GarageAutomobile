@@ -34,6 +34,15 @@
                 <label asp-for="Car.Color" class="control-label  input-group-text"></label>
                 <span asp-validation-for="Car.Color" class="text-danger"></span>
             </div>
+
+            <div class="form-group input-group mb-3">
+                <select asp-for="Car.New" class="form-control custom-select">
+                    <option value="true">New</option>
+                    <option value="false">Used</option>
+                </select>
+                <label asp-for="Car.New" class="control-label input-group-text">State</label>
+            </div>
+
             <div class="form-group">
                 <a href="Index" class="btn btn-secondary"><i class="bi bi-arrow-left-square"></i></a>
                 <input type="submit" value="Create" class="btn btn-primary" />

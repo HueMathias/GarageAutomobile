@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace ConstellationGarage.Models;
+﻿namespace ConstellationGarage.Models;
 
 public partial class Car
 {
@@ -14,6 +11,8 @@ public partial class Car
     public string? Essence { get; set; }
 
     public string? Color { get; set; }
+
+    public bool? New { get; set; }
 
     public virtual Brand? CodeBrandNavigation { get; set; }
 
