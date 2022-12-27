@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
+﻿using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace ConstellationGarage.Pages
 {
@@ -14,6 +13,7 @@ namespace ConstellationGarage.Pages
 
         public void OnGet()
         {
+
         }
     }
 }

@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using ConstellationGarage.Models;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using ConstellationGarage.Models;
 
 namespace ConstellationGarage.Pages.Categories
 {
@@ -20,7 +15,7 @@ namespace ConstellationGarage.Pages.Categories
             Configuration = configuration;
         }
 
-        public IList<Category> Category { get;set; } = default!;
+        public IList<Category> Category { get; set; } = default!;
         public PaginatedList<Category> Categories { get; set; }
 
         public async Task OnGetAsync(int? pageIndex)
@@ -28,7 +23,7 @@ namespace ConstellationGarage.Pages.Categories
             if (_context.Categories != null)
             {
                 IQueryable<Category> categoriesIQ = from s in _context.Categories
-                                         select s;
+                                                    select s;
 
 
                 var pageSize = Configuration.GetValue("PageSize", 10);

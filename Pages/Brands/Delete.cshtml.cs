@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using ConstellationGarage.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using ConstellationGarage.Models;
 
 namespace ConstellationGarage.Pages.Brands
 {
@@ -19,7 +15,7 @@ namespace ConstellationGarage.Pages.Brands
         }
 
         [BindProperty]
-      public Brand Brand { get; set; }
+        public Brand Brand { get; set; }
 
         public async Task<IActionResult> OnGetAsync(string id)
         {
@@ -34,7 +30,7 @@ namespace ConstellationGarage.Pages.Brands
             {
                 return NotFound();
             }
-            else 
+            else
             {
                 Brand = brand;
             }

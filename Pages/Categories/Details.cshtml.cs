@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using ConstellationGarage.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using ConstellationGarage.Models;
 
 namespace ConstellationGarage.Pages.Categories
 {
@@ -18,7 +14,7 @@ namespace ConstellationGarage.Pages.Categories
             _context = context;
         }
 
-      public Category Category { get; set; }
+        public Category Category { get; set; }
 
         public async Task<IActionResult> OnGetAsync(string id)
         {
@@ -32,7 +28,7 @@ namespace ConstellationGarage.Pages.Categories
             {
                 return NotFound();
             }
-            else 
+            else
             {
                 Category = category;
             }

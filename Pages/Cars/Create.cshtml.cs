@@ -1,7 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using ConstellationGarage.Models;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using ConstellationGarage.Models;
 
 namespace ConstellationGarage.Pages.Cars
 {
@@ -23,14 +23,14 @@ namespace ConstellationGarage.Pages.Cars
 
         [BindProperty]
         public Car Car { get; set; }
-        
+
         public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid)
             {
                 return Page();
             }
-            
+
             _context.Cars.Add(Car);
             await _context.SaveChangesAsync();
 

@@ -1,7 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using ConstellationGarage.Models;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using ConstellationGarage.Models;
 
 namespace ConstellationGarage.Pages.Brands
 {
@@ -26,7 +26,7 @@ namespace ConstellationGarage.Pages.Brands
                 return NotFound();
             }
 
-            var brand =  await _context.Brands.FirstOrDefaultAsync(m => m.Code == id);
+            var brand = await _context.Brands.FirstOrDefaultAsync(m => m.Code == id);
             if (brand == null)
             {
                 return NotFound();
@@ -73,7 +73,7 @@ namespace ConstellationGarage.Pages.Brands
 
         private bool BrandExists(string id)
         {
-          return _context.Brands.Any(e => e.Code == id);
+            return _context.Brands.Any(e => e.Code == id);
         }
     }
 }

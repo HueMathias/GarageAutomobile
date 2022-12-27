@@ -1,8 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using ConstellationGarage.Models;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using ConstellationGarage.Models;
 
 namespace ConstellationGarage.Pages.Cars
 {
@@ -25,7 +25,7 @@ namespace ConstellationGarage.Pages.Cars
                 return NotFound();
             }
 
-            var car =  await _context.Cars.FirstOrDefaultAsync(m => m.Id == id);
+            var car = await _context.Cars.FirstOrDefaultAsync(m => m.Id == id);
             if (car == null)
             {
                 return NotFound();
@@ -68,7 +68,7 @@ namespace ConstellationGarage.Pages.Cars
 
         private bool CarExists(int id)
         {
-          return _context.Cars.Any(e => e.Id == id);
+            return _context.Cars.Any(e => e.Id == id);
         }
     }
 }

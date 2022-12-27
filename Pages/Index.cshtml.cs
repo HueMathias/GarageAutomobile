@@ -17,8 +17,8 @@ namespace ConstellationGarage.Pages
         public void OnGet()
         {
             int nbUsed = (from s in _context.Cars
-                                  where s.New == false
-                                  select s).Count();
+                          where s.New == false
+                          select s).Count();
 
             ViewData["nbUsed"] = nbUsed;
             if (nbUsed > 1)
@@ -28,8 +28,8 @@ namespace ConstellationGarage.Pages
 
 
             int nbNew = (from s in _context.Cars
-                          where s.New == true
-                          select s).Count();
+                         where s.New == true
+                         select s).Count();
             ViewData["nbNew"] = nbNew;
             if (nbNew > 1)
                 ViewData["nbNew"] += " stock cars available";

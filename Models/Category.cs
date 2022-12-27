@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace ConstellationGarage.Models;
+﻿namespace ConstellationGarage.Models;
 
 public partial class Category
 {

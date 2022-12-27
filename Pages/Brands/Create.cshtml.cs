@@ -1,6 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using ConstellationGarage.Models;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using ConstellationGarage.Models;
 
 namespace ConstellationGarage.Pages.Brands
 {

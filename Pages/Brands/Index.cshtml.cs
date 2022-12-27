@@ -1,7 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc.RazorPages;
+﻿using ConstellationGarage.Models;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using ConstellationGarage.Models;
-using System.Configuration;
 
 namespace ConstellationGarage.Pages.Brands
 {
@@ -16,7 +15,7 @@ namespace ConstellationGarage.Pages.Brands
             Configuration = configuration;
         }
 
-        public IList<Brand> Brand { get;set; } = default!;
+        public IList<Brand> Brand { get; set; } = default!;
         public PaginatedList<Brand> Brands { get; set; }
 
         public async Task OnGetAsync(int? pageIndex)
@@ -24,7 +23,7 @@ namespace ConstellationGarage.Pages.Brands
             if (_context.Brands != null)
             {
                 IQueryable<Brand> brandsIQ = from s in _context.Brands
-                select s;
+                                             select s;
 
                 var pageSize = Configuration.GetValue("PageSize", 10);
                 Brands = await PaginatedList<Brand>.CreateAsync(brandsIQ.AsNoTracking(), pageIndex ?? 1, pageSize);

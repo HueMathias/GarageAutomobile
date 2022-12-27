@@ -1,6 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc.RazorPages;
+﻿using ConstellationGarage.Models;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using ConstellationGarage.Models;
 
 namespace ConstellationGarage.Pages.Cars
 {
@@ -15,7 +15,7 @@ namespace ConstellationGarage.Pages.Cars
             Configuration = configuration;
         }
 
-        public IList<Car> Car { get;set; } = default!;
+        public IList<Car> Car { get; set; } = default!;
 
         public string? Sort { get; set; }
         public PaginatedList<Car> Cars { get; set; }
@@ -28,7 +28,8 @@ namespace ConstellationGarage.Pages.Cars
             {
                 if (sortDefault != null)
                 {
-                    switch (sortDefault) {
+                    switch (sortDefault)
+                    {
                         case "used":
                             carsIQ = from s in _context.Cars
                                      where s.New == false
@@ -42,13 +43,13 @@ namespace ConstellationGarage.Pages.Cars
                         default:
                             sortDefault = sortDefault.ToLower();
                             carsIQ = from s in _context.Cars select s;
-                            carsIQ = carsIQ.Where(x => 
+                            carsIQ = carsIQ.Where(x =>
                                 x.CodeCategorie.ToLower().Contains(sortDefault) ||
                                 x.CodeBrand.ToLower().Contains(sortDefault) ||
                                 x.Color.ToLower().Contains(sortDefault)
                             );
                             break;
-                    }                                             
+                    }
                 }
                 else
                 {

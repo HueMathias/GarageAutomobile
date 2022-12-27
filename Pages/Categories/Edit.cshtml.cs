@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using ConstellationGarage.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using ConstellationGarage.Models;
 
 namespace ConstellationGarage.Pages.Categories
 {
@@ -29,7 +24,7 @@ namespace ConstellationGarage.Pages.Categories
                 return NotFound();
             }
 
-            var category =  await _context.Categories.FirstOrDefaultAsync(m => m.Code == id);
+            var category = await _context.Categories.FirstOrDefaultAsync(m => m.Code == id);
             if (category == null)
             {
                 return NotFound();
@@ -70,7 +65,7 @@ namespace ConstellationGarage.Pages.Categories
 
         private bool CategoryExists(string id)
         {
-          return _context.Categories.Any(e => e.Code == id);
+            return _context.Categories.Any(e => e.Code == id);
         }
     }
 }
