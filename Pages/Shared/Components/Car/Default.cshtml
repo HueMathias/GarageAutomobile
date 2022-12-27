@@ -1,0 +1,37 @@
+﻿@model IEnumerable<ConstellationGarage.Models.Car>
+
+@*To call it : @await Component.InvokeAsync("Car")*@
+<table class="table table-striped table-borderless">
+    <thead>
+        <tr>
+            <th>Fuel</th>
+            <th>Color</th>
+            <th>Mark code</th>
+            <th>Categorie code</th>
+            <th>State</th>
+            <th class="db-buttons"></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var car in Model)
+        {
+            <tr>
+                <td>@car.Essence</td>
+                <td>@car.Color</td>
+                <td>@car.CodeBrand</td>
+                <td>@car.CodeCategorie</td>
+                    <td>@{
+                            bool newcar = car.New.HasValue ? car.New.Value : false;
+                            if (newcar) { <span class="badge bg-primary">New</span> }                            
+                            else { <span class="badge bg-warning">Used</span> }                            
+                        } </td>
+                <td class="db-buttons">
+                    <a asp-page="./Edit" asp-route-id="@car.Id"><i class="bi bi-pencil-square"></i></a>
+                    <a asp-page="./Details" asp-route-id="@car.Id"><i class="bi bi-book"></i></a>
+                    <a asp-page="./Delete" asp-route-id="@car.Id"><i class="bi bi-trash"></i></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

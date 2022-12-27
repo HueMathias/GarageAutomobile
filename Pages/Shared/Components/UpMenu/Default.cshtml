@@ -1,0 +1,15 @@
+﻿@model IEnumerable<Microsoft.EntityFrameworkCore.Metadata.IEntityType>
+
+<div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+    <ul class="nav nav-tabs flex-grow-1">
+        @{
+            foreach(var item in Model)
+            {
+                var name = item.ShortName() + "s";
+                if (name == "Categorys") name = "Categories";
+                <li class="nav-item"><a id="@name.ToLower()" class="nav-link text-dark" asp-area="" asp-page="/@name/Index">@name</a></li>
+                   
+            }
+        }
+    </ul>
+</div>
