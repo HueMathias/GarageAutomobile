@@ -1,5 +1,6 @@
 ﻿using ConstellationGarage.Models;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.Extensions.Localization;
 
 namespace ConstellationGarage.Pages
 {
@@ -15,6 +16,10 @@ namespace ConstellationGarage.Pages
         }
 
         public void OnGet()
+        {
+            SetQuantities();
+        }
+        private void SetQuantities()
         {
             int nbUsed = (from s in _context.Cars
                           where s.New == false

@@ -17,6 +17,14 @@
         },
         "runtime": {
           "ConstellationGarage.dll": {}
+        },
+        "resources": {
+          "en/ConstellationGarage.resources.dll": {
+            "locale": "en"
+          },
+          "fr/ConstellationGarage.resources.dll": {
+            "locale": "fr"
+          }
         }
       },
       "Azure.Core/1.24.0": {

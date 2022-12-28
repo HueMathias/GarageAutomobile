@@ -564,3 +564,10 @@ C:\Users\Mathias\source\repos\GarageAutomobile\obj\Debug\net6.0\refint\Constella
 C:\Users\Mathias\source\repos\GarageAutomobile\obj\Debug\net6.0\ConstellationGarage.pdb
 C:\Users\Mathias\source\repos\GarageAutomobile\obj\Debug\net6.0\ConstellationGarage.genruntimeconfig.cache
 C:\Users\Mathias\source\repos\GarageAutomobile\obj\Debug\net6.0\ref\ConstellationGarage.dll
+C:\Users\Mathias\source\repos\GarageAutomobile\obj\Debug\net6.0\ConstellationGarage.csproj.GenerateResource.cache
+C:\Users\Mathias\source\repos\GarageAutomobile\bin\Debug\net6.0\en\ConstellationGarage.resources.dll
+C:\Users\Mathias\source\repos\GarageAutomobile\bin\Debug\net6.0\fr\ConstellationGarage.resources.dll
+C:\Users\Mathias\source\repos\GarageAutomobile\obj\Debug\net6.0\en\ConstellationGarage.resources.dll
+C:\Users\Mathias\source\repos\GarageAutomobile\obj\Debug\net6.0\fr\ConstellationGarage.resources.dll
+C:\Users\Mathias\source\repos\GarageAutomobile\obj\Debug\net6.0\ConstellationGarage.Resources.Pages.IndexModel.en.resources
+C:\Users\Mathias\source\repos\GarageAutomobile\obj\Debug\net6.0\ConstellationGarage.Resources.Pages.IndexModel.fr.resources

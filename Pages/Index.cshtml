@@ -1,11 +1,13 @@
 ﻿@page
+@using Microsoft.AspNetCore.Localization
+@inject IStringLocalizer<IndexModel> _loc
 @model IndexModel
 @{
     ViewData["Title"] = "Home page";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Constellation Garage and its network welcome you !</h1>    
+    <h1 class="display-4">@_loc["welcome"]</h1>    
 </div>
 <br />
 
